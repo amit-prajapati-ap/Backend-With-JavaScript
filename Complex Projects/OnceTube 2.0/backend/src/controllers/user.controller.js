@@ -189,7 +189,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 })
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
-    const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken
+    const incomingRefreshToken = req.cookies?.refreshToken || req.body?.refreshToken || null
 
     if (!incomingRefreshToken) {
         throw new ApiError(401, "Unauthorized Request")
@@ -233,6 +233,11 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
         newPassword: null
     }
 
+    if (!(oldPassword && newPassword)) {
+        throw new ApiError(400, "New Password and Old Password is required")
+    }
+
+    console.log("PROCESS DONE", oldPassword, newPassword)
     const user = await User.findById(req.user?._id)
     const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
 
