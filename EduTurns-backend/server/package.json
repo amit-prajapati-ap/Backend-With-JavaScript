@@ -1,0 +1,30 @@
+{
+  "name": "eduturns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "amit_prajapati",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@clerk/express": "^1.4.9",
+    "cloudinary": "^2.6.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.0",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^3.1.10",
+    "stripe": "^18.0.0",
+    "svix": "^1.42.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
